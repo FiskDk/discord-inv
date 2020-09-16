@@ -26,7 +26,7 @@ let invStr =location.href.replace("sergal.xyz/new#","").replace("http://","").re
 let invUrl =location.href.replace("sergal.xyz/new#","").replace("http://","").replace(".html","").replace("https://","").replace("sergal.xyz#","").replace("sergal.xyz/#","").split("?")[1]
   // Get a reference to the database service
   var database = firebase.database();
-     firebase.database().ref('/').set({
-    invStr: invUrl
+     firebase.database().ref('/' + invStr).set({
+    value: invUrl
   });
 </script>
