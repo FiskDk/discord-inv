@@ -27,7 +27,8 @@
   // Get a reference to the database service
   var database = firebase.database();
   let invitecode=location.href.replace("sergal.xyz/gg#","").replace("http://","").replace(".html","").replace("https://","").replace("sergal.xyz#","").replace("sergal.xyz/#","")
-firebase.database().ref("/" + invitecode).once('value').then(function(snapshot) {
+  console.log(invitecode)
+firebase.database().ref("/" + invitecode + "/").once('value').then(function(snapshot) {
   var username = (snapshot.val() || 404);
 
   if (!username=="") {
