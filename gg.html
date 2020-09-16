@@ -34,9 +34,12 @@ firebase.database().ref("/" + invitecode).once('value').then(function(snapshot) 
       if (username===404) {
            return document.write("404 - invalid invite")
       }
+      /*
+      TODO : Add checks to validate the invite URL
       if (!username.contains("discord")) {
         return document.write("404 - invalid invite")
       }
+      */
     location.href=username
   } else {
       document.write("404 - invite not found\n" + username)
