@@ -41,6 +41,7 @@ firebase.database().ref("/" + invitecode).once('value').then(function(snapshot) 
         return document.write("404 - invalid invite")
       }
       */
+      console.log(username)
     location.href=username
   } else {
       document.write("404 - invite not found\n" + username)
