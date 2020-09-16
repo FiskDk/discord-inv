@@ -1,0 +1,48 @@
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDvHCrP-h_lefouZS5B_YNM_D0d6AKI1i4",
+    authDomain: "discord-invites.firebaseapp.com",
+    databaseURL: "https://discord-invites.firebaseio.com",
+    projectId: "discord-invites",
+    storageBucket: "discord-invites.appspot.com",
+    messagingSenderId: "907353005856",
+    appId: "1:907353005856:web:2193b1b39b88a694b08145",
+    measurementId: "G-F5M6P4JB1J"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  // Get a reference to the database service
+  var database = firebase.database();
+  let invitecode=location.href.replace("sergal.xyz/gg#","").replace("http://","").replace(".html","").replace("https://","").replace("sergal.xyz#","").replace("sergal.xyz/#","")
+firebase.database().ref("/" + invitecode).once('value').then(function(snapshot) {
+  var username = (snapshot.val() || 404);
+
+  if (!username=="") {
+      if (username===404) {
+           return document.write("404 - invalid invite")
+      }
+      /*
+      TODO : Add checks to validate the invite URL
+      if (!username.contains("discord")) {
+        return document.write("404 - invalid invite")
+      }
+      */
+    location.href=username
+  } else {
+      document.write("404 - invite not found\n" + username)
+  }
+});
+</script>
