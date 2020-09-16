@@ -28,7 +28,7 @@
   var database = firebase.database();
   let invitecode=location.href.replace("sergal.xyz","").replace("/","").replace("#","").replace("http://","")
   console.log(invitecode)
-firebase.database().ref("/" + invitecode + "/").once('value').then(function(snapshot) {
+firebase.database().ref("/" + invitecode).once('value').then(function(snapshot) {
   var username = (snapshot.val() || 404);
 
   if (!username=="") {
