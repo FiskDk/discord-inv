@@ -26,10 +26,10 @@ let invStr =location.href.replace("sergal.xyz/new#","").replace("http://","").re
 let invUrl =location.href.replace("sergal.xyz/new#","").replace("http://","").replace(".html","").replace("https://","").replace("sergal.xyz#","").replace("sergal.xyz/#","").split("?")[1]
 if(invUrl.contains(".")){
  document.write("Please only use the invite code.\nExample\nCreate invite for https://discord.gg/uaFsGks\n\nopen this url : http://sergal.xyz/new#customInvite?uaFsGks\nHave fun\n~f1sk");
- return;
-}
+} else {
   var database = firebase.database();
      firebase.database().ref('/' + invStr).set({
     value: invUrl
   });
+}
 </script>
