@@ -35,6 +35,8 @@ firebase.database().ref("/" + invitecode).once('value').then(function(snapshot) 
       if (_code===404) {
            return document.write("404 - invalid invite : " + _code)
       }
+      console.log(_code)
+      console.log(JSON.stringify(_code))
       console.log("https://discord.gg/" + _code)
 //   location.href="https://discord.gg/" + code
   } else {
