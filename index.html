@@ -29,16 +29,16 @@
   let invitecode=location.href.replace("sergal.xyz","").replace("/","").replace("#","").replace("http://","")
   console.log(invitecode)
 firebase.database().ref("/" + invitecode).once('value').then(function(snapshot) {
-  var code = (snapshot.val() || 404);
+  var _code = (snapshot.val() || 404);
 
-  if (!code=="") {
-      if (code===404) {
-           return document.write("404 - invalid invite : " + code)
+  if (!_code=="") {
+      if (_code===404) {
+           return document.write("404 - invalid invite : " + _code)
       }
-      console.log("https://discord.gg/" + code)
+      console.log("https://discord.gg/" + _code)
 //   location.href="https://discord.gg/" + code
   } else {
-      document.write("404 - invite not found\n" + code)
+      document.write("404 - invite not found\n" + _code)
   }
 });
 </script>
