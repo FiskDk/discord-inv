@@ -24,7 +24,7 @@
   firebase.analytics();
 let invStr =location.href.replace("sergal.xyz/new#","").replace("http://","").replace(".html","").replace("https://","").replace("sergal.xyz#","").replace("sergal.xyz/#","").split("?")[0]
 let invUrl =location.href.replace("sergal.xyz/new#","").replace("http://","").replace(".html","").replace("https://","").replace("sergal.xyz#","").replace("sergal.xyz/#","").split("?")[1]
-if(invUrl.contains(".")){
+if(invUrl.includes(".")){
  document.write("Please only use the invite code.\nExample\nCreate invite for https://discord.gg/uaFsGks\n\nopen this url : http://sergal.xyz/new#customInvite?uaFsGks\nHave fun\n~f1sk");
 } else {
   var database = firebase.database();
