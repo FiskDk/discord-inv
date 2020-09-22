@@ -29,22 +29,16 @@
   let invitecode=location.href.replace("sergal.xyz","").replace("/","").replace("#","").replace("http://","")
   console.log(invitecode)
 firebase.database().ref("/" + invitecode).once('value').then(function(snapshot) {
-  var username = (snapshot.val() || 404);
+  var code = (snapshot.val() || 404);
 
-  if (!username=="") {
-      if (username===404) {
-           return document.write("404 - invalid invite")
+  if (!code=="") {
+      if (code===404) {
+           return document.write("404 - invalid invite : " + code)
       }
-      /*
-      TODO : Add checks to validate the invite URL
-      if (!username.contains("discord")) {
-        return document.write("404 - invalid invite")
-      }
-      */
-      console.log(username)
-   // location.href=username
+//      console.log(code)
+   location.href="https://discord.gg/" + code
   } else {
-      document.write("404 - invite not found\n" + username)
+      document.write("404 - invite not found\n" + code)
   }
 });
 </script>
